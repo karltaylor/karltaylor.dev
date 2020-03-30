@@ -1,0 +1,13 @@
+[ignore]
+dist
+.cache
+
+[include]
+
+[libs]
+
+[lints]
+
+[options]
+
+[strict]
