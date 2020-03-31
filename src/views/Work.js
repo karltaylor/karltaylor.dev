@@ -1,11 +1,15 @@
 // @flow
 import React from "react";
 import styled from "styled-components";
+import { ReactSVG } from "react-svg";
+import { Link as ReactRouterLink } from "react-router-dom";
 
 import Colours from "../Colours";
 
 import Container from "../components/Container";
 import Link from "../components/Link";
+
+import arrowLeft from "../assets/arrow-left-solid.svg";
 
 const WorkContainer = styled.div`
   padding: 50px;
@@ -74,8 +78,25 @@ const workedAtData = [
 const Work = () => (
   <Container>
     <WorkContainer>
-      <h1>Work</h1>
-
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between"
+        }}
+      >
+        <h1>Work</h1>
+        <ReactRouterLink to="/">
+          <ReactSVG
+            style={{
+              color: Colours.lightestOkayOnBlack,
+              width: 25,
+              height: 25
+            }}
+            src={arrowLeft}
+          />
+        </ReactRouterLink>
+      </div>
       {/* <SubSectionTitle>Working on</SubSectionTitle>
 
       {workingOnData.map(({ title, description, link }) => (

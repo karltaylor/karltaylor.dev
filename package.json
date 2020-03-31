@@ -11,6 +11,7 @@
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "react-router-dom": "^5.0.0",
+    "react-svg": "^11.0.15",
     "styled-components": "^5.0.1"
   },
   "devDependencies": {
