@@ -4,11 +4,14 @@ import styled from "styled-components";
 
 import Colours from "../Colours";
 
-const Container = styled.div`
+import Container from "../components/Container";
+import Link from "../components/Link";
+
+const WorkContainer = styled.div`
   padding: 50px;
 `;
 
-const WorkTitle = styled.h1`
+const WorkTitleLink = styled(Link)`
   font-size: 28px;
   margin-bottom: 0;
   color: ${Colours.lighterNotBlack};
@@ -26,55 +29,77 @@ const SubSectionTitle = styled.h2`
 
 const WorkItem = ({
   title,
-  description
+  description,
+  link
 }: {
   title: string,
-  description: string
+  description: string,
+  link: ?string
 }) => (
   <div style={{ marginBottom: "30px" }}>
-    <WorkTitle>{title}</WorkTitle>
+    <WorkTitleLink target="_blank" href={link}>
+      {title}
+    </WorkTitleLink>
     <WorkDescription>{description}</WorkDescription>
   </div>
 );
 
-const workingOnData = [
-  {
-    title: "Queuey.dev",
-    description:
-      "A platform that allows to you easily integrate referral waitlists for early access to your next product."
-  }
-];
+// const workingOnData = [
+//   {
+//     title: "Queuey.dev",
+//     description:
+//       "A platform that allows to you easily integrate referral waitlists for early access to your next product.",
+//     link: null
+//   }
+// ];
 
 const workedAtData = [
   {
     title: "We Are Savvy",
-    description: "The platform that connects people, services and space"
+    description: "The platform that connects people, services and space",
+    link: "https://wearesavvy.com/"
   },
   {
     title: "Workshop",
-    description: "Web, iOS & Android E-learning platform."
+    description: "Web, iOS & Android E-learning platform.",
+    link: "https://www.workshop.ws"
   },
   {
     title: "Impero",
-    description: "A creative agency for tired brands"
+    description: "A creative agency for tired brands",
+    link: "https://www.weareimpero.com"
   }
 ];
 
 const Work = () => (
   <Container>
-    <h1>Work</h1>
+    <WorkContainer>
+      <h1>Work</h1>
 
-    <SubSectionTitle>Working on</SubSectionTitle>
+      {/* <SubSectionTitle>Working on</SubSectionTitle>
 
-    {workingOnData.map(({ title, description }) => (
-      <WorkItem key={title} title={title} description={description} />
-    ))}
+      {workingOnData.map(({ title, description, link }) => (
+        <WorkItem
+          link={link}
+          key={title}
+          title={title}
+          description={description}
+        />
+      ))} */}
 
-    <SubSectionTitle style={{ marginTop: "100px" }}>Worked at</SubSectionTitle>
+      <SubSectionTitle style={{ marginTop: "100px" }}>
+        Worked at
+      </SubSectionTitle>
 
-    {workedAtData.map(({ title, description }) => (
-      <WorkItem key={title} title={title} description={description} />
-    ))}
+      {workedAtData.map(({ title, description, link }) => (
+        <WorkItem
+          link={link}
+          key={title}
+          title={title}
+          description={description}
+        />
+      ))}
+    </WorkContainer>
   </Container>
 );
 
