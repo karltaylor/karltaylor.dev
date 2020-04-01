@@ -6,41 +6,71 @@ import Container from "../components/Container";
 import Link from "../components/Link";
 
 const Centered = styled(Container)`
+  padding: 30px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
-  line-height: 38px;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+    line-height: 38px;
+  }
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+  }
 `;
 
-const LinkContainer = styled.div`
-  margin-left: 250px;
+const FullWidthMobileContainer = styled.div`
+  width: 100%;
+  @media (min-width: 1024px) {
+    width: auto;
+  }
+`
+
+const LinkContainer = styled(FullWidthMobileContainer)`
+  display: flex;
+  flex-direction: column;
+
+  span {
+    margin-bottom: 15px;
+    @media (min-width: 1024px) {
+      width: 100px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    margin-left: 250px;
+    width: auto;
+  }
 `;
 
 const Home = () => {
   return (
     <Centered>
-      <div>
-        <p>Hello,</p>
+      <FullWidthMobileContainer>
+        <p>Hello, I'm Karl Taylor</p>
         <p>
           I am a full stack software engineer with a<br />
-          focus in NodeJS and React & React-Native.
+          focus in Node.js, React & React-Native.
         </p>
-      </div>
+      </FullWidthMobileContainer>
       <LinkContainer>
-        <p>
+        <span>
           <Link as={ReactRouterLink} to="/work">
             Work
           </Link>
-        </p>
-        <p>
+        </span>
+        <span>
           <Link target="_blank" href="https://dev.to/karltaylor">
             dev.to
           </Link>
-        </p>
-        <p>
+        </span>
+        <span>
           <Link href="mailto:karl@karltaylor.dev">Contact</Link>
-        </p>
+        </span>
       </LinkContainer>
     </Centered>
   );
