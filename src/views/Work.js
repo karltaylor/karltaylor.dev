@@ -10,6 +10,7 @@ import Container from "../components/Container";
 import Link from "../components/Link";
 
 import arrowLeft from "../assets/arrow-left-solid.svg";
+import linkIcon from '../assets/link-solid.svg';
 
 const WorkContainer = styled.div`
   padding: 50px;
@@ -43,6 +44,18 @@ const WorkItem = ({
     <div style={{ marginBottom: "30px" }}>
       <WorkTitleLink target="_blank" href={link}>
         {title}
+        <ReactSVG
+          style={{
+            color: Colours.veryLightGrey,
+            width: 12,
+            height: 12,
+            position: 'absolute',
+            right: -20,
+            top: "50%",
+            transform: "translateY(-50%)"
+          }}
+          src={linkIcon}
+        />
       </WorkTitleLink>
       <WorkDescription>{description}</WorkDescription>
     </div>
