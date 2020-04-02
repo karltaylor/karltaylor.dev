@@ -40,13 +40,13 @@ const WorkItem = ({
   description: string,
   link: ?string
 }) => (
-  <div style={{ marginBottom: "30px" }}>
-    <WorkTitleLink target="_blank" href={link}>
-      {title}
-    </WorkTitleLink>
-    <WorkDescription>{description}</WorkDescription>
-  </div>
-);
+    <div style={{ marginBottom: "30px" }}>
+      <WorkTitleLink target="_blank" href={link}>
+        {title}
+      </WorkTitleLink>
+      <WorkDescription>{description}</WorkDescription>
+    </div>
+  );
 
 // const workingOnData = [
 //   {
@@ -85,7 +85,7 @@ const Work = () => (
           justifyContent: "space-between"
         }}
       >
-        <h1>Work</h1>
+        <h1 style={{ color: Colours.notBlack }}>Work</h1>
         <ReactRouterLink to="/">
           <ReactSVG
             style={{
