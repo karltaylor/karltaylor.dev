@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link as ReactRouterLink } from "react-router-dom";
 
+import { FadeIn } from "../components/Animations";
 import Container from "../components/Container";
 import Link from "../components/Link";
 
@@ -28,7 +29,7 @@ const FullWidthMobileContainer = styled.div`
   @media (min-width: 1024px) {
     width: auto;
   }
-`
+`;
 
 const LinkContainer = styled(FullWidthMobileContainer)`
   display: flex;
@@ -47,30 +48,50 @@ const LinkContainer = styled(FullWidthMobileContainer)`
   }
 `;
 
+const AnimatedSpan = styled.span`
+  ${({ active, delay }) => {
+    return FadeIn({ active, delay });
+  }};
+`;
+
+const AnimatedP = styled.p`
+  ${({ active, delay }) => {
+    return FadeIn({ active, delay });
+  }};
+`;
+
 const Home = () => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setMounted(true);
+    }, 100);
+  }, []);
+
   return (
     <Centered>
       <FullWidthMobileContainer>
-        <p>Hello, I'm Karl Taylor</p>
-        <p>
+        <AnimatedP delay={100} active={mounted}>Hello, I'm Karl Taylor</AnimatedP>
+        <AnimatedP delay={200} active={mounted}>
           I am a full stack software engineer with a<br />
           focus in Node.js, React & React-Native.
-        </p>
+        </AnimatedP>
       </FullWidthMobileContainer>
       <LinkContainer>
-        <span>
+        <AnimatedSpan active={mounted}>
           <Link as={ReactRouterLink} to="/work">
             Work
           </Link>
-        </span>
-        <span>
+        </AnimatedSpan>
+        <AnimatedSpan delay={300} active={mounted}>
           <Link target="_blank" href="https://dev.to/karltaylor">
             dev.to
           </Link>
-        </span>
-        <span>
+        </AnimatedSpan>
+        <AnimatedSpan delay={500} active={mounted}>
           <Link href="mailto:karl@karltaylor.dev">Contact</Link>
-        </span>
+        </AnimatedSpan>
       </LinkContainer>
     </Centered>
   );
