@@ -11,6 +11,10 @@ import Link from "../components/Link";
 
 import arrowLeft from "../assets/arrow-left-solid.svg";
 
+const PageTitle = styled.h1`
+  color: ${Colours.lighterNotBlack};
+`;
+
 const WorkContainer = styled.div`
   padding: 50px;
 `;
@@ -85,7 +89,7 @@ const Work = () => (
           justifyContent: "space-between"
         }}
       >
-        <h1>Work</h1>
+        <PageTitle>Work</PageTitle>
         <ReactRouterLink to="/">
           <ReactSVG
             style={{
