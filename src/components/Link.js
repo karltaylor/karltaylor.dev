@@ -18,6 +18,7 @@ const Link = styled.a`
     transform: translateY(10px);
     transition: 200ms;
     opacity: 0;
+    pointer-events: none;
   }
 
   &:hover {
