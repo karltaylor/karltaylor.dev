@@ -10,6 +10,7 @@ import Container from "../components/Container";
 import Link from "../components/Link";
 
 import arrowLeft from "../assets/arrow-left-solid.svg";
+import linkIcon from "../assets/link-solid.svg";
 
 const PageTitle = styled.h1`
   color: ${Colours.lighterNotBlack};
@@ -38,15 +39,27 @@ const SubSectionTitle = styled.h2`
 const WorkItem = ({
   title,
   description,
-  link
+  link,
 }: {
   title: string,
   description: string,
-  link: ?string
+  link: ?string,
 }) => (
   <div style={{ marginBottom: "30px" }}>
     <WorkTitleLink target="_blank" href={link}>
       {title}
+      <ReactSVG
+        style={{
+          color: Colours.veryLightGrey,
+          width: 12,
+          height: 12,
+          position: "absolute",
+          right: -20,
+          top: "50%",
+          transform: "translateY(-50%)",
+        }}
+        src={linkIcon}
+      />
     </WorkTitleLink>
     <WorkDescription>{description}</WorkDescription>
   </div>
@@ -65,18 +78,18 @@ const workedAtData = [
   {
     title: "We Are Savvy",
     description: "The platform that connects people, services and space",
-    link: "https://wearesavvy.com/"
+    link: "https://wearesavvy.com/",
   },
   {
     title: "Workshop",
     description: "Web, iOS & Android E-learning platform.",
-    link: "https://www.workshop.ws"
+    link: "https://www.workshop.ws",
   },
   {
     title: "Impero",
     description: "A creative agency for tired brands",
-    link: "https://www.weareimpero.com"
-  }
+    link: "https://www.weareimpero.com",
+  },
 ];
 
 const Work = () => (
@@ -86,7 +99,7 @@ const Work = () => (
         style={{
           display: "flex",
           alignItems: "center",
-          justifyContent: "space-between"
+          justifyContent: "space-between",
         }}
       >
         <PageTitle>Work</PageTitle>
@@ -95,7 +108,7 @@ const Work = () => (
             style={{
               color: Colours.lightestOkayOnBlack,
               width: 25,
-              height: 25
+              height: 25,
             }}
             src={arrowLeft}
           />
