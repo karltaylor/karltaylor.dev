@@ -76,13 +76,19 @@ const WorkItem = ({
 
 const workedAtData = [
   {
+    title: "Future Platforms / Stadion",
+    description:
+      "Building Paris Saint-Germain's latest iOS & Android React Native app",
+    link: "https://www.stadion.io",
+  },
+  {
     title: "We Are Savvy",
     description: "The platform that connects people, services and space",
-    link: "https://wearesavvy.com/",
+    link: "https://wearesavvy.com",
   },
   {
     title: "Workshop",
-    description: "Web, iOS & Android E-learning platform.",
+    description: "Web, iOS & Android E-learning platform",
     link: "https://www.workshop.ws",
   },
   {
